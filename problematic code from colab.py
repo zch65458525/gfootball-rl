@@ -346,7 +346,7 @@ def get_args():
     parse.add_argument('--display-interval', type=int, default=10, help='the interval that display log information')
     parse.add_argument('--log-dir', type=str, default='logs/')
     parse.add_argument('--policy_model_dir', type=str, default='policy_model')
-    args = parse.parse_known_args()[0]
+    args = parse.parse_known_args()[0] #这里需要修改，否则会报错
 
     return args
     
