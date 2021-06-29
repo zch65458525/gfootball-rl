@@ -38,8 +38,8 @@ class PPO_agent:
         #如果colab上继续训需要
 
     def _update_network(self, obs, actions, returns, advantages):
-        inds = np.arange(obs.shape[0])#shape[0]=numworkers*nsteps=8*128=1024
-        nbatch_train = obs.shape[0] // self.args.batch_size#一批8个，故minibatchsize是256
+        inds = np.arange(obs.shape[0])#shape[0]=numworkers*nsteps<=8*128=1024
+        nbatch_train = obs.shape[0] // self.args.batch_size#一批8个，故minibatchsize=总步数//8<=128
         for _ in range(self.args.epoch):
             """
             generate random indeces to be minibatch sample index
